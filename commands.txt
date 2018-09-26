@@ -1,0 +1,20 @@
+build a docker image:
+    - docker build -t hello-node:v1 .
+
+create a deployment command:    
+    - kubectl run hello-node --image=hello-node:v1 --port=8080 --image-pull-policy=Never
+
+expose via service:
+    - kubectl expose deployment hello-node --type=LoadBalancer --name=my-service
+
+rollout status:
+    - kubectl rollout status deployment hello-world-dep-yaml
+
+history of deployments:
+    - kubectl rollout history deployment hello-world-dep-yaml
+
+replica sets:
+    - kubectl get rs
+
+rollback to old revision:
+    - kubectl rollout undo deployment hello-world-dep-yaml --to-revision=1

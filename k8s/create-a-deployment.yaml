@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-polo
+  namespace: default
+  labels:
+    app: hello-polo
+spec:
+  replicas: 10
+  minReadySeconds: 10
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: hello-polo
+    spec:
+      containers:
+      - name: hello-polo
+        image: hello-polo:v1
+        ports:
+        - containerPort: 8080 

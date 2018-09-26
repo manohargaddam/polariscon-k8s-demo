@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: hello-polo-svc
+  labels:
+    app: hello-polo-svc
+spec:
+  externalTrafficPolicy: Cluster
+  sessionAffinity: None
+  selector:
+    app: hello-polo
+  ports:
+  - port: 9090
+    protocol: TCP
+    targetPort: 8080
+  type: LoadBalancer
