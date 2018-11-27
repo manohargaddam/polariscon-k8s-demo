@@ -7,14 +7,20 @@ create a deployment command:
 expose via service:
     - kubectl expose deployment hello-node --type=LoadBalancer --name=my-service
 
+creating objects:
+    - kubectl create -f ./k8s/create-a-deployment.yaml
+
+applying changes:
+    - kubectl apply -f ./k8s/create-a-deployment.yaml --record=true
+
 rollout status:
-    - kubectl rollout status deployment hello-world-dep-yaml
+    - kubectl rollout status deployment hello-galaxy
 
 history of deployments:
-    - kubectl rollout history deployment hello-world-dep-yaml
+    - kubectl rollout history deployment hello-galaxy
 
 replica sets:
     - kubectl get rs
 
 rollback to old revision:
-    - kubectl rollout undo deployment hello-world-dep-yaml --to-revision=1
+    - kubectl rollout undo deployment hello-galaxy --to-revision=1

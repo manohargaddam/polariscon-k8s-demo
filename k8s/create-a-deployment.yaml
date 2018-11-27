@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-polo
+  name: hello-galaxy
   namespace: default
   labels:
-    app: hello-polo
+    app: hello-galaxy
 spec:
-  replicas: 3
-  minReadySeconds: 10
+  replicas: 5
+  minReadySeconds: 4
   strategy: 
     type: RollingUpdate
     rollingUpdate:
@@ -16,10 +16,10 @@ spec:
   template:
     metadata:
       labels:
-        app: hello-polo
+        app: hello-galaxy
     spec:
       containers:
-      - name: hello-polo
-        image: hello-polo:v1
+      - name: hello-galaxy
+        image: hello-galaxy:v1
         ports:
         - containerPort: 8080 
